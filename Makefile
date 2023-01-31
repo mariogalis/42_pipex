@@ -2,7 +2,7 @@ SRCS	=	main.c pipex.c split.c utils.c error.c
 
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= pipex.a
+NAME	= pipex
 
 CC	= gcc
 
@@ -10,23 +10,20 @@ RM	= rm -f
 
 CFLAGS	= -Wall -Wextra -Werror
 
-AR = ar rc
-
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-				${AR} ${NAME} ${OBJS}
-				ranlib ${NAME}
+				${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 all:		${NAME}
 
 clean:
-				${RM} ${OBJS}
+				${RM} ${OBJBS} ${OBJS}
 
-fclean:		clean
+fclean: 	clean
 				${RM} ${NAME}
 
-re: 		fclean
+re: 		fclean all
 
 .PHONY:		all clean fclean re
