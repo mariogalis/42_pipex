@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:19:32 by magonzal          #+#    #+#             */
-/*   Updated: 2022/03/30 20:40:54 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:53:10 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_slave1(int fd, char *cmd1, int pip[2], char *envp[])
 		error("ERROR: BAD EXECVE 1\n");
 }
 
-void	ft_slave2(int fd, char *cmd2,int pip[2], char *envp[])
+void	ft_slave2(int fd, char *cmd2, int pip[2], char *envp[])
 {
 	char	**cmd;
 	char	*path;
@@ -72,10 +72,12 @@ char	*get_path(char *cmd, char *envp[])
 {
 	char	**paths;
 	char	*goodpath;
-	int		i = 0;
-	int		j = 0;
+	int		i;
+	int		j;
 
-	while (envp[i] && ft_strncmp(envp[i],"PATH=",5))
+	i = 0;
+	j = 0;
+	while (envp[i] && ft_strncmp(envp[i], "PATH=", 5))
 		i++;
 	paths = ft_split(envp[i] + 5, ':');
 	cmd = ft_strjoin("/", cmd);

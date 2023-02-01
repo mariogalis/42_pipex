@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:00:40 by magonzal          #+#    #+#             */
-/*   Updated: 2022/03/24 13:07:39 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/02/01 12:53:52 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	word_len(char const *s, char c)
 
 	count = 0;
 	i = 0;
-    while (s[i] != c && s[i])
+	while (s[i] != c && s[i])
 	{
 		count++;
 		i++;
