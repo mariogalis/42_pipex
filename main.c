@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:02:22 by magonzal          #+#    #+#             */
-/*   Updated: 2022/03/30 19:59:04 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:09:15 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ int	main(int argc, char *argv[], char *envp[])
 	int		fd[2];
 
 	if (!envp || !*envp)
-		error("Error: Array of Pointers to Environment Variables");
+		error("Error: Array of Pointers to Environment Variables",1);
 	if (argc != 5)
-		error("Error: Invalid Number of Arguments");
+		error("Error: Invalid Number of Arguments",1);
 	cmds[0] = argv[2];
 	cmds[1] = argv[3];
 	fd[0] = open(argv[1], O_RDONLY, 0644);
 	fd[1] = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
-	if (fd[0] == -1 || fd[1] == -1)
-		error("ERROR : CANNOT OPEN THE FILE");
-	pipex(fd, cmds, envp);
+	return (pipex(fd, cmds, envp));
 }

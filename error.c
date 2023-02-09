@@ -6,17 +6,17 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:15:05 by magonzal          #+#    #+#             */
-/*   Updated: 2022/03/30 19:59:25 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:48:08 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	error(char *err)
+void	error(char *err,int sts)
 {
 	int	len;
 
 	len = ft_strlen(err);
 	write(1, err, len);
-	exit(1);
+	exit(sts);
 }

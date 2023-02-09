@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:10:00 by magonzal          #+#    #+#             */
-/*   Updated: 2023/02/01 12:53:26 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:48:35 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # include <fcntl.h>
 # include <sys/types.h>
 
-void	pipex(int *fd, char **cmds, char *envp[]);
+int		pipex(int *fd, char **cmds, char *envp[]);
 void	ft_slave1(int fd, char *cmd1, int pip[2], char *envp[]);
 void	ft_slave2(int fd, char *cmd2, int pip[2], char *envp[]);
 char	*get_path(char *cmd, char *envp[]);
-void	error(char *err);
+void	error(char *err,int e);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
