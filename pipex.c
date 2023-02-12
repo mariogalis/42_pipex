@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:19:32 by magonzal          #+#    #+#             */
-/*   Updated: 2023/02/09 13:33:28 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/02/13 00:01:42 by mario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@ void	ft_slave1(int fd, char *cmd1, int pip[2], char *envp[])
 	if (fd == -1)
 		error("Error: Can Not Read the Input File\n",1);
 	if (execve(path, cmd, envp) == -1)
-		error("ERROR: command not found\n",127);
+	{
+		exit(127);
+	}
 }
 
 void	ft_slave2(int fd, char *cmd2, int pip[2], char *envp[])
@@ -69,7 +71,11 @@ void	ft_slave2(int fd, char *cmd2, int pip[2], char *envp[])
 	if (fd == -1)
 		error("Error: Can Not Read the Output File\n",1);
 	if (execve(path, cmd, envp) == -1)
-		error("ERROR: command not found\n",127);
+	{	
+		perror("Error Bad execve");
+		exit(127);
+	}
+	
 }
 
 char	*get_path(char *cmd, char *envp[])
@@ -92,5 +98,6 @@ char	*get_path(char *cmd, char *envp[])
 			return (goodpath);
 		j++;
 	}
-	exit(0);
+	perror("ERROR: command not found");
+	exit(127);
 }
