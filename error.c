@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:15:05 by magonzal          #+#    #+#             */
-/*   Updated: 2023/02/09 16:00:34 by mario            ###   ########.fr       */
+/*   Updated: 2023/02/13 11:34:28 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	error(char *err,int sts)
+void	error(char *err, int sts)
 {
 	int	len;
 
